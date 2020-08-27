@@ -11,7 +11,8 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  PopupMenu = PopupMenu1
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -116,13 +117,22 @@ object Form1: TForm1
         OnChange = MemoErsetzeChange
       end
       object SucheErsetzeBtn: TButton
-        Left = 3
+        Left = 296
         Top = 198
-        Width = 579
+        Width = 286
         Height = 34
-        Caption = 'Suche und Ersetze'
+        Caption = 'Suche und Ersetze durch'
         TabOrder = 2
         OnClick = SucheErsetzeBtnClick
+      end
+      object SucheBtn: TButton
+        Left = 3
+        Top = 197
+        Width = 287
+        Height = 35
+        Caption = 'Suche nach'
+        TabOrder = 3
+        OnClick = SucheBtnClick
       end
     end
     object OldProtPath: TEdit
@@ -205,8 +215,6 @@ object Form1: TForm1
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 169
-    ExplicitHeight = 478
     object Splitter1: TSplitter
       Left = 521
       Top = 1
@@ -259,8 +267,14 @@ object Form1: TForm1
       ShowHint = False
       TabOrder = 1
       Zoom = 100
-      ExplicitLeft = 528
-      ExplicitWidth = 581
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 367
+    Top = 88
+    object AufStandartzurcksetzen1: TMenuItem
+      Caption = 'Auf Standart zur'#252'cksetzen'
+      OnClick = AufStandartzurcksetzen1Click
     end
   end
 end

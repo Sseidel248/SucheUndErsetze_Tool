@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.Menus;
 
 type
   TForm1 = class(TForm)
@@ -29,6 +30,9 @@ type
     OldPathButton: TButton;
     NewPathBtn: TButton;
     Label5: TLabel;
+    SucheBtn: TButton;
+    PopupMenu1: TPopupMenu;
+    AufStandartzurcksetzen1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure OldProtPathChange(Sender: TObject);
     procedure NewProtPathChange(Sender: TObject);
@@ -40,6 +44,8 @@ type
     procedure MemoSucheChange(Sender: TObject);
     procedure MemoErsetzeChange(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
+    procedure SucheBtnClick(Sender: TObject);
+    procedure AufStandartzurcksetzen1Click(Sender: TObject);
   private
     procedure ListFileDir(Path: string; var FileList: TStrings);
     function SelectPath : String;
@@ -58,6 +64,30 @@ implementation
 
 {$R *.dfm}
 
+
+procedure TForm1.SucheBtnClick(Sender: TObject);
+begin
+  SearchForStrIn( OldRichEdit1 );
+end;
+
+procedure TForm1.AufStandartzurcksetzen1Click(Sender: TObject);
+begin
+  //suche und ersetzen Groupe
+  MemoSuche.Enabled := false;
+  MemoErsetze.Enabled := false;
+  SucheErsetzeBtn.Enabled := false;
+  SucheBtn.Enabled := false;
+
+  //zurücksetzen auf Standart
+  ComboBox1.Clear;
+  ComboBox1.Items.Add( '- Bitte Protokol wählen -' );
+  OldRichEdit1.Clear;
+  NewRichEdit2.Clear;
+  MemoSuche.Clear;
+  MemoErsetze.Clear;
+  NewProtPath.Clear;
+  OldProtPath.Clear;
+end;
 
 procedure TForm1.ComboBox1Select(Sender: TObject);
 var
@@ -82,6 +112,10 @@ begin
   begin
     SearchForStrIn( OldRichEdit1 );
     ReplaceStr;
+  end
+  else if SucheBtn.Enabled then
+  begin
+    SearchForStrIn( OldRichEdit1 );
   end;
 
 end;
@@ -92,6 +126,7 @@ begin
   MemoSuche.Enabled := false;
   MemoErsetze.Enabled := false;
   SucheErsetzeBtn.Enabled := false;
+  SucheBtn.Enabled := false;
 
 //speichern und combobox
   SaveBtn.Enabled := false;
@@ -160,6 +195,9 @@ begin
 
   if ( not SucheText.Equals('') ) and (not ErsetzeText.Equals('') ) then
     SucheErsetzeBtn.Enabled := true;
+
+  if not SucheText.Equals('') then
+    SucheBtn.Enabled := true;
 end;
 
 function TForm1.SelectPath : String;

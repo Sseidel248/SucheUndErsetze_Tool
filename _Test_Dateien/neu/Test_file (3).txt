@@ -38,7 +38,8 @@ hallo=welt
 abs=ert
 12345123456
 Blub=Null
-xxx=yyy
+CoolsterTyp=Basti
+GeilsteFrau=Anni
 hallo=welt
 abs=ert
 12345123456
