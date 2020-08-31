@@ -2,8 +2,8 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>1899.12.30 00:00:00.000.247,C:\Users\BattiPerdator\Documents\Embarcadero\Studio\Projekte\Unit1.dfm=D:\Delphi embarcadero\SucheUndErsetzeTool\Main_SUE.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.138,C:\Users\BattiPerdator\Documents\Embarcadero\Studio\Projekte\Project1.dproj=D:\Delphi embarcadero\SucheUndErsetzeTool\SUE_Tool.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.247,C:\Users\BattiPerdator\Documents\Embarcadero\Studio\Projekte\Unit1.pas=D:\Delphi embarcadero\SucheUndErsetzeTool\Main_SUE.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.615,=C:\Users\BattiPerdator\Documents\Embarcadero\Studio\Projekte\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.138,C:\Users\BattiPerdator\Documents\Embarcadero\Studio\Projekte\Project1.dproj=D:\Delphi embarcadero\SucheUndErsetzeTool\SUE_Tool.dproj</Transaction>
   </Transactions>
 </BorlandProject>

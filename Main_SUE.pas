@@ -47,8 +47,8 @@ type
     procedure SucheBtnClick(Sender: TObject);
     procedure AufStandartzurcksetzen1Click(Sender: TObject);
   private
-    procedure ListFileDir(Path: string; var FileList: TStrings);
-    function SelectPath : String;
+//    procedure ListFileDir(Path: string; var FileList: TStrings);
+//    function SelectPath : String;
     procedure SearchForStrIn( var OldRichEdit1 : TRichEdit );overload;
     function SearchForStrIn( Liste : TStrings) : integer; overload;
     procedure ReplaceStr;
@@ -62,6 +62,9 @@ var
 
 implementation
 
+
+uses
+  Basti_FileSystem;
 {$R *.dfm}
 
 
@@ -136,23 +139,23 @@ begin
   LoadBtn.Enabled := false;
 end;
 
-procedure TForm1.ListFileDir(Path: string; var FileList: TStrings);
-var
-SR: TSearchRec;
-PathToFile : String;
-begin
-  if FindFirst(Path + '\*.*', faAnyFile, SR) = 0 then
-  begin
-    repeat
-    if (SR.Attr <> faDirectory) then
-    begin
-      PathToFile := Path + '\' + SR.Name;
-      FileList.Add(PathToFile);
-    end;
-    until FindNext(SR) <> 0;
-      FindClose(SR);
-  end;
-end;
+//procedure TForm1.ListFileDir(Path: string; var FileList: TStrings);
+//var
+//SR: TSearchRec;
+//PathToFile : String;
+//begin
+//  if FindFirst(Path + '\*.*', faAnyFile, SR) = 0 then
+//  begin
+//    repeat
+//    if (SR.Attr <> faDirectory) then
+//    begin
+//      PathToFile := Path + '\' + SR.Name;
+//      FileList.Add(PathToFile);
+//    end;
+//    until FindNext(SR) <> 0;
+//      FindClose(SR);
+//  end;
+//end;
 
 procedure TForm1.LoadBtnClick(Sender: TObject);
 var
@@ -200,21 +203,21 @@ begin
     SucheBtn.Enabled := true;
 end;
 
-function TForm1.SelectPath : String;
-var
-OpenDialog : TFileOpenDialog;
-begin
-  OpenDialog := TFileOpenDialog.Create(nil);
-  try
-    OpenDialog.Title := 'Ordner auswählen';
-    OpenDialog.Options :=[fdoPickFolders];
-    OpenDialog.Execute;
-    Result := OpenDialog.FileName;
-  finally
-    OpenDialog.Free;
-  end;
-
-end;
+//function TForm1.SelectPath : String;
+//var
+//OpenDialog : TFileOpenDialog;
+//begin
+//  OpenDialog := TFileOpenDialog.Create(nil);
+//  try
+//    OpenDialog.Title := 'Ordner auswählen';
+//    OpenDialog.Options :=[fdoPickFolders];
+//    OpenDialog.Execute;
+//    Result := OpenDialog.FileName;
+//  finally
+//    OpenDialog.Free;
+//  end;
+//
+//end;
 
 procedure TForm1.NewPathBtnClick(Sender: TObject);
 begin
